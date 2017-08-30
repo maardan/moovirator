@@ -1,0 +1,5 @@
+$('#reviewForm_<%= m_id %>').html('<div class="alert alert-success" role="alert"><strong>Thanks!</strong></div>');
+$('#reviewForm_<%= m_id %>').fadeOut(2000);
+$('#rating_<%= m_id %>').html("<%= escape_javascript(render 'rating', { rating: rating }) %>");
+$('#rating_<%= m_id %>').prepend("<%= escape_javascript(render 'movie/detailsbtn', { m_id: m_id }) %>");
+$('#movieSummary_<%= m_id %>').delay(2000).fadeIn();

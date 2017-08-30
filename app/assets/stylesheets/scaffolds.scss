@@ -1,0 +1,174 @@
+body {
+  background: url('black01.svg') 50% 0% repeat-y #fff;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.white-text {
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+// #navHome:link {
+//     border: 2px solid #D4D4D4;
+//     background-color: red
+// }
+
+.active-nav {
+    border: 2px solid #D4D4D4;
+}
+
+
+.card-container {
+  margin-top: 1rem; 
+  margin-bottom: 1rem;
+  height: 30rem; 
+  width: 20rem;
+}
+.card-each {
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  width: 100%;
+}
+
+ .card-each-flip {
+  transform: rotateY(180deg);
+}
+
+
+.card-each .side {
+  backface-visibility: hidden;
+  border-radius: 6px;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+.card-each .back {
+  background: #eaeaed;
+  color: #0087cc;
+  line-height: 150px;
+  text-align: center;
+  transform: rotateY(180deg);
+  overflow: scroll;
+}
+
+.please-rate {
+  color: red;
+}
+
+.star-rating {
+  margin-top: 10px;
+
+  label {
+    font-size: larger;
+  }
+}
+
+
+.rating-stars {
+  margin: 5px 0px 5px 0px;
+}
+
+.btn-right {
+  text-align: right;
+}
+
+.btn-right-f {
+  float: right;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+
+  // &:visited {
+  //   color: #666;
+  // }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 0 5px 7px;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+    
+    input {
+      float: right;
+    }
+    button {
+      float: left;
+    }
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+label {
+  display: block;
+}

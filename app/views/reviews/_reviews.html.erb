@@ -1,0 +1,18 @@
+<% reviews_per_movie.each do |review| %>
+	<li class="list-group-item">
+		<div class="col" style="text-align: left">
+			<div>
+				<%= review['email'] %>
+			</div>
+			<div>
+				<%= render 'rating', rating: review['rating'] %>
+			</div>
+			<div>
+				<small><%= review['created_at'].strftime("%B %d, %Y") %></small>
+			</div>
+		</div>
+		<div class="col" style="text-align: right">
+			<%= review['comment'] %>
+		</div>
+	</li>
+<% end %>

@@ -1,0 +1,37 @@
+<%= form_with(model: review, class: "form-group") do |form| %>
+
+  <div class="field">
+    <%= form.number_field :movie_id, id: :review_movie_id, class: "form-control", hidden: :true, value: curr_m_id %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :movie_title, id: :review_movie_title, class: "form-control", hidden: :true, value: curr_m_title %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :movie_img, id: :review_movie_img, class: "form-control", hidden: :true, value: curr_m_img %>
+  </div>
+
+  <div class="field">
+    <%= form.email_field :email, id: :review_email, class: "form-control", placeholder: :email, required: true %>
+  </div>
+
+  <div id="starReview_<%= curr_m_id %>" class="field star-rating" style="display: inline-flex;">
+    <%= form.label :rating %>&nbsp;
+    <span id="star1_<%= curr_m_id %>" class="fa fa-star-o" style="font-size:24px" data-rating="1"></span>
+    <span id="star2_<%= curr_m_id %>" class="fa fa-star-o" style="font-size:24px" data-rating="2"></span>
+    <span id="star3_<%= curr_m_id %>" class="fa fa-star-o" style="font-size:24px" data-rating="3"></span>
+    <span id="star4_<%= curr_m_id %>" class="fa fa-star-o" style="font-size:24px" data-rating="4"></span>
+    <span id="star5_<%= curr_m_id %>" class="fa fa-star-o" style="font-size:24px" data-rating="5"></span>
+    <%= form.number_field :rating, id: :review_rating, class: "form-control", hidden: :true %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :comment, id: :review_comment, class: "form-control", placeholder: :comment %>
+  </div>
+
+  <div id="reviewBtns_<%= curr_m_id %>" class="actions">
+    <button type="button" class="btn btn-danger">Cancel</button>
+    <%= form.submit 'Done', class: "btn btn-primary" %>
+  </div>
+<% end %>

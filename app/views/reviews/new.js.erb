@@ -1,0 +1,37 @@
+// This is the reviews-form logic
+
+// hide the movie summary and display review form
+$("#movieSummary_<%= curr_m_id %>").hide();
+$("#reviewForm_<%= curr_m_id %>").html("<%= escape_javascript(render 'form', { review: @review, curr_m_id: curr_m_id, curr_m_title: curr_m_title, curr_m_img: curr_m_img } ) %>").hide().fadeIn();
+
+// used for coloring in the stars for rating
+$('#starReview_<%= curr_m_id %>').click(function(context){
+
+    for (var i=1; i<=5; i++) {
+
+    	if (context.target.dataset.rating >= i) {
+    		$("#star"+ i +"_<%= curr_m_id %>").removeClass("fa-star-o").addClass("fa-star");
+    	}
+    	else {
+    		$("#star"+ i +"_<%= curr_m_id %>").removeClass("fa-star").addClass("fa-star-o");
+    	}
+    }
+
+    $('#starReview_<%= curr_m_id %>').find('input').val(context.target.dataset.rating);
+});
+
+// When "Cancel" button is pressed
+$('#reviewBtns_<%= curr_m_id %>').find('button').click(function() {
+	$("#reviewForm_<%= curr_m_id %>").empty();
+    $("#movieSummary_<%= curr_m_id %>").fadeIn();
+});
+
+// Custom validator for star rating (since it's a hidden input)
+$('#reviewBtns_<%= curr_m_id %>').find('input').click(function() {
+
+	if (!$('#starReview_<%= curr_m_id %>').find('input').val()) {
+		// no rating given
+		$('#starReview_<%= curr_m_id %>').append('<div class="form-control-feedback please-rate">Please Rate!</div>');
+		return false;
+	}
+});

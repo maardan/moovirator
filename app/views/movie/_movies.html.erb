@@ -1,0 +1,37 @@
+<% @top_movies.each do |movie| %>
+	<div class="card-container col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+		<div id="cardEach_<%= movie['id'] %>" class="card-each">
+			<div class="card side">
+				<img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w533_and_h300_bestv2<%= movie['poster_path'] %>" alt="<%= movie['title'] %>">
+
+				<div id="reviewForm" class="card-block" style="overflow-y: scroll;">
+
+					<h4 class="card-title"><%= movie['title'] %></h4>
+					
+					<div id="movieSummary_<%= movie['id'] %>">
+						<div class="btn-right">
+							<%= link_to 'Leave a Review', new_review_path(m_id: movie['id'], m_title: movie['title'], m_img: movie['poster_path']), remote: true, class: "btn btn-info btn-sm" %>
+						</div>
+						
+						<div id="rating_<%= movie['id'] %>" class="rating-stars">
+							<% if @avg_review_hash[movie['id']] %>
+								<%= render 'reviews/rating', rating: @avg_review_hash[movie['id']] %>
+								<%= render 'detailsbtn', m_id: movie['id'] %>
+							<% else %> 
+								<span>None</span>
+							<% end %>	
+						</div>
+						<p class="card-text">Release Date: <%= movie['release_date'] %></p>
+						<p class="card-text">Genre: <%= @genre_decoder[movie['genre_ids'][0]] %></p>
+						<p class="card-text"><%= movie['overview'] %></p>								
+					</div>
+						             
+					<div id="reviewForm_<%= movie['id'] %>"></div>
+				</div>
+			</div>
+			<div class="side back">
+				<ul id="cardBack_<%= movie['id'] %>" class="list-group"></ul>
+			</div>       
+		</div>
+	</div>
+<% end %>

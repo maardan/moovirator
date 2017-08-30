@@ -1,0 +1,10 @@
+$('#cardEach_<%= m_id %>').addClass("card-each-flip");
+
+$('#cardBack_<%= m_id %>').html("<%= escape_javascript(render 'reviews', { reviews_per_movie: reviews_per_movie }) %>");
+
+$('#cardBack_<%= m_id %>').prepend("<button type='button' id='cardBackCloseBtn_<%= m_id %>' class='btn btn-primary' style='cursor: pointer;'>Close</button>" );
+
+// When "Close" button is pressed
+$('#cardBackCloseBtn_<%= m_id %>').click(function() {
+	$('#cardEach_<%= m_id %>').removeClass("card-each-flip");
+});

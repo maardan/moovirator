@@ -1,0 +1,5 @@
+$('#allTopMovies').html("<%= escape_javascript(render 'movies') %>");
+
+$("#navbar_sort_btns").find(".active").removeClass("active");
+
+$("#sort_<%= id %>").addClass("active");

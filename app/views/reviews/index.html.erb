@@ -1,0 +1,6 @@
+<% @movies_with_reviews.each do |movie| %>
+	<div class="list-group" style="margin-top: 20px">
+		<h4 class="white-text"><%= movie['movie_title'] %></h4>
+		<%= render 'reviews', reviews_per_movie: @reviews.where('movie_id = ?', movie['movie_id']) %>
+	</div>
+<% end %>

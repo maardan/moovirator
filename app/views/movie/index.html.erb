@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+	<h1 class="white-text">Top Rated Movies</h1>
+</div>
+
+<nav aria-label="Sort By">
+  <ul id="navbar_sort_btns" class="pagination">
+    <li id="sort_0" class="page-item active"><%= link_to "None", sort_path(id: 0), remote: true, class: "page-link" %></li>
+    <li id="sort_1" class="page-item"><%= link_to "Title", sort_path(id: 1), remote: true, class: "page-link" %></li>
+    <li id="sort_2" class="page-item"><%= link_to "Genre", sort_path(id: 2), remote: true, class: "page-link" %></li>
+    <li id="sort_3" class="page-item"><%= link_to "Release Date", sort_path(id: 3), remote: true, class: "page-link" %></li>
+  </ul>
+</nav>
+
+<div id="allTopMovies" class="row">
+	<%= render 'movies' %>
+</div>
